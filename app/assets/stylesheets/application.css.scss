@@ -14,8 +14,13 @@
  *= require_self
  */
  
+ //bootstrap gem import
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+//font awesome gem import
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 
 //background gradient
