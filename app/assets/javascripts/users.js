@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function(){
     }
     
     //Validate expiration date.
-    if(!Stripe.card.validateExpirey(expMonth, expYear)) {
+    if(!Stripe.card.validateExpiry(expMonth, expYear)) {
       error = true;
       alert('The expiration date is invalid.')
     }
