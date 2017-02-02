@@ -1,4 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :select_plan, only: :new 
+  
   # extend default devise gem behavior so that users signing up with the Pro
   # account with plan ID 2 save with a special stripe subscription function
   # Otherwise, devise signs up user as usual
@@ -14,4 +16,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
   end
+  
+  private
+    def select_plan
+      unless (params[:plan] == '1' || params[:plan] == '2')
+        redirect_to root_url
+        flash[:notice] = "Please select a membership plan to sign up."
+      end
+    end
 end
